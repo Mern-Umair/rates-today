@@ -2,7 +2,10 @@ export const siteName = "Rates Today";
 
 // The address used in canonical links, the sitemap and share images.
 // Set NEXT_PUBLIC_SITE_URL on the host only if the site moves to another domain.
-export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://rates.formkb.com").replace(/\/$/, "");
+// The site has no domain yet. Set NEXT_PUBLIC_SITE_URL on the host to the real address
+// (for example https://ratestoday.pk) and every canonical link, sitemap entry and share
+// image follows it.
+export const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL ?? "https://ratestoday.pk").replace(/\/$/, "");
 
 export const owner = {
   name: "Umair Tahir",
@@ -33,7 +36,8 @@ export const admob = {
 };
 
 /**
- * Google AdSense publisher ID. The site lives on a subdomain of formkb.com, so the
- * FormKB AdSense approval covers it; the same ID goes here.
+ * Google AdSense publisher ID for the website version, for example "ca-pub-1234567890123456".
+ * Empty until this site has its own domain and its own AdSense approval. The Android
+ * app uses AdMob (see `admob` above) and never AdSense.
  */
-export const adsenseClient: string = "ca-pub-8876309021692504";
+export const adsenseClient: string = "";

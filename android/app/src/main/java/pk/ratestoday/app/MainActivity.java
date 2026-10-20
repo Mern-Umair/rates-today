@@ -1,4 +1,4 @@
-package com.formkb.rates;
+package pk.ratestoday.app;
 
 import com.getcapacitor.BridgeActivity;
 

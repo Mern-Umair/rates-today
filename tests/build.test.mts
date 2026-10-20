@@ -4,7 +4,7 @@ import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 import { test } from "node:test";
 import { currencyPages, ratePages } from "../src/data/pages.ts";
-import { siteUrl } from "../src/data/site.ts";
+import { adsenseClient, siteUrl } from "../src/data/site.ts";
 
 const out = join(import.meta.dirname, "..", "out");
 const read = (file: string) => readFileSync(join(out, file), "utf8");
@@ -35,10 +35,11 @@ test("every page has a title, description, canonical link and share image", () =
   }
 });
 
-test("rate pages carry the AdSense tag and show a rupee figure", () => {
+test("rate pages show a rupee figure, and the AdSense tag only when an ID is set", () => {
   for (const page of ratePages) {
     const html = read(fileFor(page.href));
-    assert.ok(html.includes("google-adsense-account"), `${page.href}: adsense meta`);
+    assert.equal(html.includes("google-adsense-account"), adsenseClient !== "", `${page.href}: adsense meta`);
+    assert.ok(!html.includes("pagead2.googlesyndication"), `${page.href}: AdSense script must not be inline (the app shell must never load it)`);
     assert.match(html, /Rs [\d,]+/, `${page.href}: a rupee figure`);
   }
 });

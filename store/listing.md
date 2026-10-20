@@ -58,7 +58,7 @@ Keywords people use: dollar rate today Pakistan, usd to pkr, gold rate today, so
 - Content rating: Everyone
 - Ads: Yes (AdMob). Declare "Contains ads".
 - Data safety: no data collected; the app only fetches a public rates file. Crash logs none.
-- Privacy policy URL: https://rates.formkb.com/privacy/ (must be live before submitting).
+- Privacy policy URL: https://<the site's own domain>/privacy/ (must be live before submitting).
 
 ## Screenshots to take (phone, at least 4, 1080×1920 or 1080×2340)
 

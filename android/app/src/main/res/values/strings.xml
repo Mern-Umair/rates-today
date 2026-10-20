@@ -2,6 +2,6 @@
 <resources>
     <string name="app_name">Rates Today</string>
     <string name="title_activity_main">Rates Today</string>
-    <string name="package_name">com.formkb.rates</string>
-    <string name="custom_url_scheme">com.formkb.rates</string>
+    <string name="package_name">pk.ratestoday.app</string>
+    <string name="custom_url_scheme">pk.ratestoday.app</string>
 </resources>

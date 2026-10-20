@@ -3,7 +3,7 @@ import type { CapacitorConfig } from "@capacitor/cli";
 // The Android app is the built website (the `out` folder) inside a native shell,
 // with the AdMob plugin for ads. `npm run build` first, then `npx cap sync android`.
 const config: CapacitorConfig = {
-  appId: "com.formkb.rates",
+  appId: "pk.ratestoday.app",
   appName: "Rates Today",
   webDir: "out",
   server: {

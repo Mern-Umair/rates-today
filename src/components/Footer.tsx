@@ -77,11 +77,6 @@ export function Footer() {
                 </Link>
               </li>
             ))}
-            <li>
-              <a href="https://formkb.com" className={linkClass}>
-                FormKB photo tools
-              </a>
-            </li>
           </ul>
         </nav>
       </div>

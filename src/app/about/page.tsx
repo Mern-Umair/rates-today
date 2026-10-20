@@ -58,9 +58,8 @@ export default function AboutPage() {
 
       <h2>Who runs it</h2>
       <p>
-        {siteName} is built and maintained by {owner.name}, a web developer in {owner.city}, who also runs{" "}
-        <a href="https://formkb.com">FormKB</a>, a set of free photo and document tools for online application forms.
-        Questions and corrections: {owner.email}.
+        {siteName} is built and maintained by {owner.name}, a web developer in {owner.city}. Questions and
+        corrections: {owner.email}.
       </p>
     </TextPage>
   );

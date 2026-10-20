@@ -5,7 +5,7 @@ export default function GlobalError({ retry }: { error: Error & { digest?: strin
   return (
     <html lang="en">
       <body style={{ fontFamily: "system-ui, sans-serif", margin: 0, padding: "4rem 1rem", textAlign: "center" }}>
-        <title>Something went wrong | FormKB</title>
+        <title>Something went wrong | Rates Today</title>
         <h1 style={{ fontSize: "1.75rem" }}>Something went wrong</h1>
         <p style={{ maxWidth: "32rem", margin: "1rem auto", lineHeight: 1.6 }}>
           The page could not be shown. Your picture was not uploaded anywhere. Please try again.
