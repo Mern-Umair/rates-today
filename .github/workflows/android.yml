@@ -1,0 +1,75 @@
+# Builds the Android app on GitHub's machines, so no Android Studio is needed locally.
+#
+# Every run makes a debug APK you can install on a phone for testing (Artifacts on
+# the run page). When the three signing secrets are set, it also makes the signed
+# release bundle (.aab) that Play Console takes:
+#   ANDROID_KEYSTORE_BASE64  the upload keystore, base64-encoded
+#   ANDROID_KEYSTORE_PASSWORD
+#   ANDROID_KEY_ALIAS        (the key password is taken to be the same as the keystore password)
+name: Build Android app
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ["v*"]
+
+jobs:
+  android:
+    runs-on: ubuntu-latest
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+
+      - uses: android-actions/setup-android@v3
+
+      - run: npm ci --no-audit --no-fund
+
+      - name: Build the site into the app
+        env:
+          NEXT_PUBLIC_RATES_URL: ${{ vars.RATES_URL }}
+        run: |
+          npm run build
+          npx cap sync android
+
+      - name: Debug APK
+        working-directory: android
+        run: ./gradlew assembleDebug --no-daemon
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: rates-today-debug-apk
+          path: android/app/build/outputs/apk/debug/app-debug.apk
+
+      - name: Signed release bundle
+        if: ${{ env.KEYSTORE != '' }}
+        env:
+          KEYSTORE: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+          KEYSTORE_PASSWORD: ${{ secrets.ANDROID_KEYSTORE_PASSWORD }}
+          KEY_ALIAS: ${{ secrets.ANDROID_KEY_ALIAS }}
+        working-directory: android
+        run: |
+          echo "$KEYSTORE" | base64 -d > upload.keystore
+          ./gradlew bundleRelease --no-daemon \
+            -Pandroid.injected.signing.store.file="$PWD/upload.keystore" \
+            -Pandroid.injected.signing.store.password="$KEYSTORE_PASSWORD" \
+            -Pandroid.injected.signing.key.alias="$KEY_ALIAS" \
+            -Pandroid.injected.signing.key.password="$KEYSTORE_PASSWORD"
+          rm upload.keystore
+
+      - uses: actions/upload-artifact@v4
+        if: ${{ env.KEYSTORE != '' }}
+        env:
+          KEYSTORE: ${{ secrets.ANDROID_KEYSTORE_BASE64 }}
+        with:
+          name: rates-today-release-aab
+          path: android/app/build/outputs/bundle/release/app-release.aab

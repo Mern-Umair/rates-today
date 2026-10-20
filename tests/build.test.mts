@@ -17,7 +17,7 @@ const pages = [
   "/privacy",
   "/terms",
 ];
-const fileFor = (path: string) => (path === "" ? "index.html" : `${path.slice(1)}.html`);
+const fileFor = (path: string) => (path === "" ? "index.html" : `${path.slice(1)}/index.html`);
 
 test("the build exists", () => {
   assert.ok(existsSync(join(out, "index.html")), "run `npm run build` first");
@@ -29,7 +29,7 @@ test("every page has a title, description, canonical link and share image", () =
     const title = html.match(/<title>([^<]+)<\/title>/)?.[1] ?? "";
     assert.ok(title.length >= 10 && title.length <= 110, `${path}: title "${title}"`);
     assert.match(html, /<meta name="description" content="[^"]{50,}"/, `${path}: description`);
-    assert.ok(html.includes(`<link rel="canonical" href="${siteUrl}${path}"`), `${path}: canonical`);
+    assert.ok(html.includes(`<link rel="canonical" href="${siteUrl}${path}/"`), `${path}: canonical`);
     assert.ok(html.includes(`${siteUrl}/og.png`), `${path}: share image`);
     assert.ok(!/undefined|NaN|\[object Object\]/.test(html.replace(/<script[\s\S]*?<\/script>/g, "")), `${path}: stray undefined or NaN`);
   }
@@ -55,7 +55,7 @@ test("the data file is served and the home page is built from it", () => {
 test("sitemap lists every page once and robots points at it", () => {
   const sitemap = read("sitemap.xml");
   for (const path of pages) {
-    const url = `<loc>${siteUrl}${path}</loc>`;
+    const url = `<loc>${siteUrl}${path}/</loc>`;
     assert.equal(sitemap.split(url).length - 1, 1, `${path} in sitemap once`);
   }
   assert.ok(read("robots.txt").includes(`${siteUrl}/sitemap.xml`));

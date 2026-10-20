@@ -1,5 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Lexend } from "next/font/google";
+import { AdSenseScript } from "@/components/AdSenseScript";
+import { AppAds } from "@/components/AppAds";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { RatesProvider } from "@/components/RatesProvider";
@@ -48,15 +50,6 @@ export const viewport: Viewport = {
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html lang="en" className={`${heading.variable} h-full antialiased`}>
-      {adsenseClient && (
-        <head>
-          <script
-            async
-            src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${adsenseClient}`}
-            crossOrigin="anonymous"
-          />
-        </head>
-      )}
       <body className="flex min-h-full flex-col font-sans">
         <a
           href="#main"
@@ -70,6 +63,8 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
             {children}
           </main>
           <Footer />
+          <AppAds />
+          <AdSenseScript />
         </RatesProvider>
       </body>
     </html>
