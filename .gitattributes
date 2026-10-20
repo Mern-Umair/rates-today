@@ -1,0 +1,5 @@
+# Keep line endings as committed; the data file is rewritten by the bot.
+* text=auto eol=lf
+*.png binary
+*.pdf binary
+*.ico binary

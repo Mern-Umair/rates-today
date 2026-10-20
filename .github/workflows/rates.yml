@@ -1,0 +1,51 @@
+# Fetches today's rates twice a day and commits the data file. Each commit makes
+# Cloudflare rebuild the site, so the pages are regenerated with the new numbers.
+#
+# Times are UTC. 04:30 UTC is 9:30 am in Pakistan (after OGRA's midnight price and
+# the morning gold price); 12:30 UTC is 5:30 pm (after ECAP's 5 pm closing rates).
+name: Update rates
+
+on:
+  schedule:
+    - cron: "30 4 * * *"
+    - cron: "30 12 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: update-rates
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - run: npm ci --no-audit --no-fund
+
+      - name: Fetch rates
+        run: npm run fetch
+
+      - name: Check the parsers still pass
+        run: npm test
+
+      - name: Commit the data file if it changed
+        run: |
+          git config user.name "rates-bot"
+          git config user.email "rates-bot@users.noreply.github.com"
+          if git diff --quiet -- public/data/rates.json; then
+            echo "No change in rates.json"
+          else
+            git add public/data/rates.json
+            git commit -m "Update rates $(date -u +'%Y-%m-%d %H:%M UTC')"
+            git push
+          fi

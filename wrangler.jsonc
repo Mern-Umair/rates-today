@@ -1,0 +1,13 @@
+// Cloudflare deploy settings. The site is plain static files, so there is no Worker
+// script: Cloudflare serves the `out` folder that `npm run build` produces.
+{
+  "name": "rates",
+  "compatibility_date": "2026-09-01",
+  "assets": {
+    "directory": "./out",
+    // "/about" is answered with about.html.
+    "html_handling": "auto-trailing-slash",
+    // An unknown address gets 404.html with a 404 status.
+    "not_found_handling": "404-page"
+  }
+}

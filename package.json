@@ -1,0 +1,32 @@
+{
+  "name": "rates",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build && node scripts/fix-export.mjs",
+    "lint": "eslint",
+    "test": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test \"tests/logic.test.mts\"",
+    "typecheck": "tsc --noEmit",
+    "fetch": "node scripts/fetch-rates.mjs",
+    "check": "npm run typecheck && npm run lint && npm test && npm run build && npm run test:build",
+    "test:build": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON --test \"tests/build.test.mts\"",
+    "preview": "node scripts/serve.mjs"
+  },
+  "dependencies": {
+    "next": "16.3.8",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "eslint": "^9",
+    "eslint-config-next": "16.3.8",
+    "pdfjs-dist": "6.3.289",
+    "tailwindcss": "^4",
+    "typescript": "^5"
+  }
+}

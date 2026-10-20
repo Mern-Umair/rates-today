@@ -1,0 +1,227 @@
+@import "tailwindcss";
+
+/* Light is the default; the same tokens swap when the device prefers dark.
+   Blue carries the brand and actions, green is kept for "this file fits". */
+:root {
+  --bg: #f4f7fb;
+  --surface: #ffffff;
+  --surface-2: #edf2f8;
+  --line: #d8e1ec;
+  --fg: #0f1b2d;
+  --muted: #47566b;
+  --accent: #1d4ed8;
+  --accent-strong: #1e3a8a;
+  --accent-fg: #ffffff;
+  --accent-soft: #e8effd;
+  --ok: #15803d;
+  --ok-strong: #166534;
+  --ok-soft: #e6f5eb;
+  --danger: #b42318;
+  --danger-soft: #fdeceb;
+  --hero: #0f2a5f;
+  --hero-fg: #ffffff;
+  --hero-muted: #c7d6f2;
+  color-scheme: light;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #0b1220;
+    --surface: #111a2b;
+    --surface-2: #18233a;
+    --line: #27354f;
+    --fg: #e8eef8;
+    --muted: #a1b1c8;
+    --accent: #8ab0ff;
+    --accent-strong: #b3cbff;
+    --accent-fg: #0b1220;
+    --accent-soft: rgb(138 176 255 / 0.14);
+    --ok: #4ade80;
+    --ok-strong: #86efac;
+    --ok-soft: rgb(74 222 128 / 0.13);
+    --danger: #f97066;
+    --danger-soft: rgb(249 112 102 / 0.13);
+    --hero: #0d1a33;
+    --hero-fg: #e8eef8;
+    --hero-muted: #a9bbdb;
+    color-scheme: dark;
+  }
+}
+
+@theme inline {
+  --color-bg: var(--bg);
+  --color-surface: var(--surface);
+  --color-surface-2: var(--surface-2);
+  --color-line: var(--line);
+  --color-fg: var(--fg);
+  --color-muted: var(--muted);
+  --color-accent: var(--accent);
+  --color-accent-strong: var(--accent-strong);
+  --color-accent-fg: var(--accent-fg);
+  --color-accent-soft: var(--accent-soft);
+  --color-ok: var(--ok);
+  --color-ok-strong: var(--ok-strong);
+  --color-ok-soft: var(--ok-soft);
+  --color-danger: var(--danger);
+  --color-danger-soft: var(--danger-soft);
+  --color-hero: var(--hero);
+  --color-hero-fg: var(--hero-fg);
+  --color-hero-muted: var(--hero-muted);
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-display: var(--font-heading), ui-sans-serif, system-ui, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-size: 1.0625rem;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+}
+
+:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* Long-form text on guide and policy pages. */
+.prose h2 {
+  margin-top: 2.25rem;
+  font-size: 1.375rem;
+  line-height: 1.3;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.prose h3 {
+  margin-top: 1.5rem;
+  font-size: 1.0625rem;
+  font-weight: 600;
+}
+.prose p,
+.prose ul,
+.prose ol {
+  margin-top: 0.9rem;
+  line-height: 1.7;
+  color: var(--muted);
+}
+.prose ul {
+  list-style: disc;
+  padding-left: 1.25rem;
+}
+.prose ol {
+  list-style: decimal;
+  padding-left: 1.25rem;
+}
+.prose li + li {
+  margin-top: 0.4rem;
+}
+.prose strong {
+  color: var(--fg);
+  font-weight: 600;
+}
+.prose a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.prose .table-wrap {
+  margin-top: 1rem;
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  background: var(--surface);
+}
+.prose table {
+  width: 100%;
+  min-width: 28rem;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+  line-height: 1.5;
+  text-align: left;
+}
+.prose th,
+.prose td {
+  padding: 0.6rem 0.85rem;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+.prose tbody tr:last-child th,
+.prose tbody tr:last-child td {
+  border-bottom: 0;
+}
+.prose thead th {
+  background: var(--surface-2);
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 600;
+}
+.prose tbody th {
+  color: var(--fg);
+  font-weight: 600;
+}
+.prose td {
+  color: var(--muted);
+}
+.prose caption {
+  caption-side: bottom;
+  padding: 0.6rem 0.85rem;
+  font-size: 0.85rem;
+  color: var(--muted);
+  text-align: left;
+}
+.prose figure {
+  margin-top: 1.25rem;
+}
+.prose figure svg {
+  display: block;
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  padding: 0.5rem;
+  border: 1px solid var(--line);
+  border-radius: 0.75rem;
+  background: var(--surface);
+  color: var(--fg);
+}
+.prose figcaption {
+  margin-top: 0.5rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--muted);
+}
+
+input[type="range"] {
+  accent-color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}
+
+/* Printing from the CNIC page: only the A4 sheet goes to the printer, at full page size. */
+@media print {
+  @page {
+    size: A4;
+    margin: 0;
+  }
+  body:has(.print-sheet) * {
+    visibility: hidden;
+  }
+  body:has(.print-sheet) .print-sheet {
+    visibility: visible;
+    position: fixed;
+    inset: 0;
+    width: 210mm;
+    height: 297mm;
+    max-height: none;
+    border: 0;
+  }
+}
