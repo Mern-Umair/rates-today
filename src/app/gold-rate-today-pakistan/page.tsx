@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Faq } from "@/components/Faq";
 import { breadcrumbData, JsonLd, pageData } from "@/components/JsonLd";
 import { GoldCityTable, GoldSection } from "@/components/RateSections";
+import { ShareRates } from "@/components/ShareRates";
 import { Updated } from "@/components/Updated";
 import { pageMeta } from "@/lib/meta";
 import { changeFrom, GRAMS_PER_TOLA, longDate, rates, rs } from "@/lib/rates";
@@ -77,7 +78,10 @@ export default function GoldPage() {
       <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
         Gold rate today in Pakistan per tola (24k, 22k, 21k)
       </h1>
-      <Updated date={gold?.date} source={gold?.source} />
+      <div className="mt-2 flex flex-wrap items-center justify-between gap-3">
+        <Updated date={gold?.date} source={gold?.source} />
+        <ShareRates kind="gold" />
+      </div>
       <p className="lead mt-4 max-w-3xl text-lg">{lead}</p>
       <p className="mt-3 max-w-3xl text-muted">
         Today’s gold rate per tola, per 10 grams and per gram for 24, 22, 21 and 18 karat, the silver rate, the rate by

@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Faq } from "@/components/Faq";
 import { breadcrumbData, JsonLd, pageData } from "@/components/JsonLd";
 import { DollarSection } from "@/components/RateSections";
+import { ShareRates } from "@/components/ShareRates";
 import { Updated } from "@/components/Updated";
 import { pageMeta } from "@/lib/meta";
 import { changeFrom, longDate, pkrFor, rates, rs } from "@/lib/rates";
@@ -71,11 +72,14 @@ export default function DollarPage() {
   return (
     <article className="mx-auto max-w-5xl px-4 pb-8 pt-8 sm:px-6 sm:pt-12">
       <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Dollar rate today in Pakistan (USD to PKR)</h1>
-      <Updated
-        date={usd?.date}
-        source={rates.openMarket?.source ?? rates.interbank?.source}
-        url={rates.openMarket?.url ?? rates.interbank?.url}
-      />
+      <div className="mt-2 flex flex-wrap items-center justify-between gap-3">
+        <Updated
+          date={usd?.date}
+          source={rates.openMarket?.source ?? rates.interbank?.source}
+          url={rates.openMarket?.url ?? rates.interbank?.url}
+        />
+        <ShareRates kind="dollar" />
+      </div>
       <p className="lead mt-4 max-w-3xl text-lg">{lead}</p>
       <p className="mt-3 max-w-3xl text-muted">
         Open-market buying and selling rates from the Exchange Companies Association of Pakistan, the State Bank’s

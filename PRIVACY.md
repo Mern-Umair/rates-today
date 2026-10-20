@@ -36,7 +36,14 @@ The app is for a general audience and is not directed at children under 13.
 
 ## Permissions
 
-The only permission the app uses is internet access, to download the rates file and the advertisements.
+The app uses internet access, to download the rates file and the advertisements, and, if you allow it, notifications,
+for one reminder a day at 9 in the morning to look at the day's rates. The reminder is scheduled on your phone
+itself; no notification token or identifier is sent anywhere, and you can turn it off in the phone's app settings.
+
+## Sharing
+
+The "Share on WhatsApp" button hands the day's figures to the app you choose. The app does not see who you share
+with and does not read your contacts.
 
 ## Links to other sites
 

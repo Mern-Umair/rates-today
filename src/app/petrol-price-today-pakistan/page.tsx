@@ -3,6 +3,7 @@ import Link from "next/link";
 import { Faq } from "@/components/Faq";
 import { breadcrumbData, JsonLd, pageData } from "@/components/JsonLd";
 import { FuelSection } from "@/components/RateSections";
+import { ShareRates } from "@/components/ShareRates";
 import { Updated } from "@/components/Updated";
 import { cities } from "@/data/pages";
 import { pageMeta } from "@/lib/meta";
@@ -75,7 +76,10 @@ export default function PetrolPage() {
   return (
     <article className="mx-auto max-w-5xl px-4 pb-8 pt-8 sm:px-6 sm:pt-12">
       <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">Petrol and diesel price today in Pakistan</h1>
-      <Updated date={fuel?.date} source={fuel?.source} url={fuel?.url} />
+      <div className="mt-2 flex flex-wrap items-center justify-between gap-3">
+        <Updated date={fuel?.date} source={fuel?.source} url={fuel?.url} />
+        <ShareRates kind="petrol" />
+      </div>
       <p className="lead mt-4 max-w-3xl text-lg">{lead}</p>
       <p className="mt-3 max-w-3xl text-muted">
         The price of petrol and high-speed diesel per litre as published by the Oil and Gas Regulatory Authority (OGRA),

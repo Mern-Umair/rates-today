@@ -22,6 +22,9 @@ export const tagline =
  * from wherever it is published: the live site, or the GitHub repository's raw
  * file before the site is live. Set NEXT_PUBLIC_RATES_URL at build time.
  */
+/** The app's Play Store page, put at the end of shared messages so a forward brings installs. */
+export const playUrl = "https://play.google.com/store/apps/details?id=pk.ratestoday.app";
+
 export const liveDataUrl: string = process.env.NEXT_PUBLIC_RATES_URL ?? `${siteUrl}/data/rates.json`;
 
 /**

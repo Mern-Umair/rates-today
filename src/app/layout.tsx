@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Lexend } from "next/font/google";
 import { AdSenseScript } from "@/components/AdSenseScript";
 import { AppAds } from "@/components/AppAds";
+import { AppNotifications } from "@/components/AppNotifications";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { RatesProvider } from "@/components/RatesProvider";
@@ -65,6 +66,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           </main>
           <Footer />
           <AppAds />
+          <AppNotifications />
           <AdSenseScript />
         </RatesProvider>
       </body>

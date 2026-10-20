@@ -2,6 +2,7 @@ import Link from "next/link";
 import { Faq } from "@/components/Faq";
 import { JsonLd, pageData, siteData } from "@/components/JsonLd";
 import { CurrencyTable, HomeCards } from "@/components/RateSections";
+import { ShareRates } from "@/components/ShareRates";
 import { Updated } from "@/components/Updated";
 import { ratePages } from "@/data/pages";
 import { siteName } from "@/data/site";
@@ -72,7 +73,10 @@ export default function HomePage() {
             Today’s rates
           </h2>
           <HomeCards />
-          <Updated />
+          <div className="mt-3 flex flex-wrap items-center justify-between gap-3">
+            <Updated />
+            <ShareRates kind="all" />
+          </div>
         </section>
 
         <section className="mt-12" aria-labelledby="gulf">

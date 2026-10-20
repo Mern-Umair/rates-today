@@ -38,6 +38,11 @@ function plugin() {
 async function showBanner() {
   const mod = await plugin();
   if (!mod) return;
+  // The banner sits over the bottom of the page, so pad the page by its height
+  // or the footer's last lines would be hidden behind it.
+  await mod.AdMob.addListener(mod.BannerAdPluginEvents.SizeChanged, (size) => {
+    document.body.style.paddingBottom = `${Math.max(0, size.height)}px`;
+  });
   await mod.AdMob.showBanner({
     adId: admob.banner,
     adSize: mod.BannerAdSize.ADAPTIVE_BANNER,

@@ -46,7 +46,9 @@ WHY THIS APP
 • Official sources only: State Bank of Pakistan, ECAP, OGRA, and the world gold price
 • Updated every morning and evening
 • Works offline: the last rates stay on your phone
-• Small, fast and simple. No sign-up, no permissions beyond internet
+• Share today's rates on WhatsApp with one tap
+• One reminder a day, at 9 in the morning, if you want it
+• Small, fast and simple. No sign-up, no account
 
 Rates Today is an independent information app. It is not run by or connected with the State Bank of Pakistan, ECAP, OGRA, any exchange company or any jeweller. Rates are published for information only; the rate at a counter can differ.
 
