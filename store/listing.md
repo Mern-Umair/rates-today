@@ -60,7 +60,7 @@ Keywords people use: dollar rate in Pakistan today, usd to pkr open market, inte
 - Content rating: Everyone
 - Ads: Yes (AdMob). Declare "Contains ads".
 - Data safety: no data collected; the app only fetches a public rates file. Crash logs none.
-- Privacy policy URL: https://<the site's own domain>/privacy/ (must be live before submitting).
+- Privacy policy URL: the PRIVACY.md file in the GitHub repository, opened on github.com (https://github.com/<user>/<repo>/blob/main/PRIVACY.md). The website is not deployed (decision 20 Oct 2026); the app reads its rates from the repository's raw rates.json, which the data workflow updates twice a day.
 
 ## Screenshots to take (phone, at least 4, 1080×1920 or 1080×2340)
 

@@ -58,6 +58,19 @@ export default function PrivacyPage() {
         </p>
       )}
 
+      <h2>In the Android app</h2>
+      <p>
+        The Android app shows these same pages and downloads one small public file of the day’s rates each time it
+        opens; the last copy is kept on your phone so the figures still show without a signal, and uninstalling removes
+        it. The app is free and is paid for by advertisements from Google AdMob, which may use your device’s advertising
+        ID and technical details about the device to show and measure ads, as described in{" "}
+        <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer">
+          Google’s privacy policy
+        </a>
+        . You can reset the advertising ID or turn off personalised ads in your phone’s Google settings. The only
+        permission the app uses is internet access. We receive no personal information from AdMob.
+      </p>
+
       <h2>Links to other sites</h2>
       <p>
         Pages link to the State Bank of Pakistan, OGRA and other publishers so you can check a figure at its source.

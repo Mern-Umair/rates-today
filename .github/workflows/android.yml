@@ -36,7 +36,7 @@ jobs:
 
       - name: Build the site into the app
         env:
-          NEXT_PUBLIC_RATES_URL: ${{ vars.RATES_URL }}
+          NEXT_PUBLIC_RATES_URL: ${{ vars.RATES_URL || format('https://raw.githubusercontent.com/{0}/{1}/public/data/rates.json', github.repository, github.ref_name) }}
         run: |
           npm run build
           npx cap sync android
