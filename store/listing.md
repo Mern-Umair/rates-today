@@ -13,9 +13,9 @@ Dollar, Gold, Petrol Rate PK
 ## Short description (80 max)
 
 ```
-Today's dollar, gold, petrol & AED, SAR, GBP to PKR rates from official sources
+Dollar rate, gold rate, petrol price & AED, SAR, GBP to PKR today. Official data
 ```
-(79 characters)
+(80 characters. Leads with the three phrases people type into the Play Store search box.)
 
 ## Full description
 
@@ -27,14 +27,16 @@ DOLLAR RATE TODAY
 • Interbank rate from the State Bank of Pakistan
 • A 30-day chart and a converter for any amount
 
-GOLD RATE TODAY
-• 24k, 22k, 21k and 18k gold per tola, per 10 grams and per gram
-• Silver rate per tola
+GOLD AND SILVER RATE TODAY
+• 24k, 22k, 21k and 18k gold per tola, per 10 grams and per gram, 1 tola gold price at a glance
+• Gold rate for Lahore, Karachi, Islamabad, Peshawar and other cities
+• Silver rate per tola, per 10 grams and per kilogram
 • Worked out from the world gold price at today's dollar rate, the same arithmetic the Sarafa associations use
 
-PETROL PRICE TODAY
+PETROL, DIESEL AND LPG PRICE TODAY
 • Petrol and diesel price per litre from OGRA's daily price publication
 • The change against the previous day, and a chart of the last month
+• LPG price per kg and per 11.8 kg cylinder from OGRA's monthly notification
 
 GULF AND UK CURRENCIES TO PKR
 • UAE dirham (AED), Saudi riyal (SAR), Qatari riyal (QAR), Kuwaiti dinar (KWD), Omani rial (OMR), Bahraini dinar (BHD), British pound (GBP), euro, Canadian and Australian dollar, Malaysian ringgit and more
@@ -48,7 +50,7 @@ WHY THIS APP
 
 Rates Today is an independent information app. It is not run by or connected with the State Bank of Pakistan, ECAP, OGRA, any exchange company or any jeweller. Rates are published for information only; the rate at a counter can differ.
 
-Keywords people use: dollar rate today Pakistan, usd to pkr, gold rate today, sona ka rate, petrol price today, aed to pkr, dirham rate, riyal rate, sar to pkr, pound rate, currency rates Pakistan, open market rates, interbank rate.
+Keywords people use: dollar rate in Pakistan today, usd to pkr open market, interbank rate, gold rate in Pakistan today per tola, 1 tola gold price, 22k gold rate, sone ka rate, silver rate, petrol price in Pakistan today, diesel price, petrol ki qeemat, LPG price per kg, aed to pkr today, dirham rate, sar to pkr, riyal rate, gbp to pkr, pound rate, euro rate, currency rate today in Pakistan, forex rates open market, exchange rate.
 ```
 
 ## Category and tags

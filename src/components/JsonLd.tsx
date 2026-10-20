@@ -55,3 +55,35 @@ export const siteData = {
     },
   ],
 };
+
+/**
+ * WebPage record for a rate page: when it was last updated and which parts answer
+ * the question in the title, for search engines and AI assistants that quote pages.
+ */
+export function pageData({
+  name,
+  description,
+  path,
+  dateModified,
+}: {
+  name: string;
+  description: string;
+  path: string;
+  dateModified: string;
+}) {
+  const url = `${siteUrl}${path}/`;
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "@id": `${url}#webpage`,
+    url,
+    name,
+    description,
+    inLanguage: "en-PK",
+    isPartOf: { "@id": `${siteUrl}/#website` },
+    publisher: { "@id": `${siteUrl}/#organization` },
+    datePublished: "2026-10-20",
+    dateModified,
+    speakable: { "@type": "SpeakableSpecification", cssSelector: ["h1", ".lead"] },
+  };
+}

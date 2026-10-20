@@ -25,18 +25,18 @@ export default function PrivacyPage() {
 
       <h2>Technical information</h2>
       <p>
-        Like every website, the company that hosts {siteName} receives basic technical details when a page is
-        requested, such as the IP address, the type of browser and the time of the request. These are used to deliver
-        the pages and keep the service secure.
+        Like every website, the company that hosts {siteName} receives basic technical details when a page is requested,
+        such as the IP address, the type of browser and the time of the request. These are used to deliver the pages and
+        keep the service secure.
       </p>
 
       <h2>Cookies and advertising</h2>
       {adsenseClient ? (
         <>
           <p>
-            {siteName} is free to use and is paid for by advertising from Google AdSense. Third party vendors,
-            including Google, use cookies to serve ads based on your earlier visits to this and other websites.
-            Google’s use of advertising cookies lets it and its partners show you ads based on those visits.
+            {siteName} is free to use and is paid for by advertising from Google AdSense. Third party vendors, including
+            Google, use cookies to serve ads based on your earlier visits to this and other websites. Google’s use of
+            advertising cookies lets it and its partners show you ads based on those visits.
           </p>
           <p>
             You can turn off personalised advertising in Google’s{" "}

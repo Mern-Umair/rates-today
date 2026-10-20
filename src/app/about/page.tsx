@@ -5,7 +5,7 @@ import { pageMeta } from "@/lib/meta";
 
 export const metadata: Metadata = pageMeta({
   title: "About and sources",
-  description: `Who runs ${siteName}, where each rate comes from (State Bank, ECAP, OGRA, world gold price), how often it updates and what it does not do.`,
+  description: `Who runs ${siteName}, where each rate comes from (State Bank, ECAP, OGRA, world gold and silver price), why city rates are the same, how often it updates and what it does not do.`,
   path: "/about",
 });
 
@@ -43,8 +43,22 @@ export default function AboutPage() {
         <li>
           <strong>Petrol and diesel:</strong> the Oil and Gas Regulatory Authority (OGRA) daily price publication, which
           sets each day’s price from a seven-day average of international prices, the exchange rate, duties and levies.
+          It is one price for the whole country, so the Karachi, Lahore and Islamabad figures are the same.
+        </li>
+        <li>
+          <strong>LPG:</strong> OGRA’s monthly notification of the maximum consumer price per kg, from which the 11.8 kg
+          domestic cylinder price follows. OGRA publishes it as a scanned document, so this is the one figure entered by
+          hand, once a month, with its effective date shown.
         </li>
       </ul>
+
+      <h2>Rates by city</h2>
+      <p>
+        People search for the gold or petrol rate in their own city. There is no separate official rate per city: gold
+        follows one national reference (the Karachi Sarafa rate, which the other city associations track within a few
+        hundred rupees per tola) and petrol is one OGRA price nationwide. The city tables on this site show the same
+        figure for each city and say so, rather than inventing small differences.
+      </p>
 
       <h2>What this site does not do</h2>
       <ul>
@@ -58,8 +72,8 @@ export default function AboutPage() {
 
       <h2>Who runs it</h2>
       <p>
-        {siteName} is built and maintained by {owner.name}, a web developer in {owner.city}. Questions and
-        corrections: {owner.email}.
+        {siteName} is built and maintained by {owner.name}, a web developer in {owner.city}. Questions and corrections:{" "}
+        {owner.email}.
       </p>
     </TextPage>
   );

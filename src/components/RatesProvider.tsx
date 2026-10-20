@@ -38,25 +38,32 @@ export function RatesProvider({ children }: { children: ReactNode }) {
   const [rates, setRates] = useState<Rates>(builtRates);
 
   useEffect(() => {
-    const native = isNativeApp();
-    const stored = native ? readStored() : null;
-    if (stored && stored.updated > builtRates.updated) setRates(stored);
-
-    const url = native ? liveDataUrl : "/data/rates.json";
     const controller = new AbortController();
-    fetch(`${url}?t=${Math.floor(Date.now() / 600_000)}`, { signal: controller.signal, cache: "no-store" })
-      .then((response) => (response.ok ? response.json() : null))
-      .then((fresh: Rates | null) => {
-        if (!fresh?.updated) return;
-        const current = stored && stored.updated > builtRates.updated ? stored : builtRates;
-        if (fresh.updated > current.updated) {
+    async function load() {
+      const native = isNativeApp();
+      const stored = native ? readStored() : null;
+      // The phone's saved copy first (it is newer than the bundle after the first day), then the live file.
+      let current = builtRates;
+      if (stored && stored.updated > builtRates.updated) {
+        current = stored;
+        setRates(stored);
+      }
+      const url = native ? liveDataUrl : "/data/rates.json";
+      try {
+        const response = await fetch(`${url}?t=${Math.floor(Date.now() / 600_000)}`, {
+          signal: controller.signal,
+          cache: "no-store",
+        });
+        const fresh: Rates | null = response.ok ? await response.json() : null;
+        if (fresh?.updated && fresh.updated > current.updated) {
           setRates(fresh);
           if (native) store(fresh);
         }
-      })
-      .catch(() => {
+      } catch {
         // Offline or blocked: the built-in or stored numbers stay on screen.
-      });
+      }
+    }
+    void load();
     return () => controller.abort();
   }, []);
 

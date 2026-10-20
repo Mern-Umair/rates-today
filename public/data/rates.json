@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-20T06:20:35.146Z",
+  "updated": "2026-10-20T15:06:34.500Z",
   "history": {
     "fuel": [
       {
@@ -11,8 +11,8 @@
     "gold": [
       {
         "date": "2026-10-20",
-        "tola24k": 429380,
-        "spotUsdOz": 4129.299805
+        "tola24k": 430649,
+        "spotUsdOz": 4142.700195
       }
     ]
   },
@@ -25,7 +25,7 @@
   },
   "reference": {
     "date": "2026-10-20",
-    "usd": 277.29,
+    "usd": 277.21,
     "source": "Frankfurter central-bank reference rate"
   },
   "otherCurrencies": {
@@ -33,23 +33,23 @@
     "source": "Frankfurter (central-bank reference rates) applied to the dollar rate",
     "rates": {
       "USD": {
-        "rate": 277.29,
+        "rate": 277.21,
         "date": "2026-10-20"
       },
       "AED": {
-        "rate": 75.5,
+        "rate": 75.48,
         "date": "2026-10-20"
       },
       "SAR": {
-        "rate": 73.94,
+        "rate": 73.92,
         "date": "2026-10-20"
       },
       "GBP": {
-        "rate": 369.68,
+        "rate": 369.67,
         "date": "2026-10-20"
       },
       "EUR": {
-        "rate": 311.54,
+        "rate": 311.2,
         "date": "2026-10-20"
       },
       "JPY": {
@@ -57,39 +57,39 @@
         "date": "2026-10-20"
       },
       "QAR": {
-        "rate": 76.18,
+        "rate": 76.16,
         "date": "2026-10-20"
       },
       "KWD": {
-        "rate": 896.77,
+        "rate": 896.89,
         "date": "2026-10-20"
       },
       "OMR": {
-        "rate": 721.17,
+        "rate": 720.96,
         "date": "2026-10-20"
       },
       "BHD": {
-        "rate": 737.47,
+        "rate": 737.26,
         "date": "2026-10-20"
       },
       "CAD": {
-        "rate": 196.52,
+        "rate": 196.91,
         "date": "2026-10-20"
       },
       "AUD": {
-        "rate": 193.19,
+        "rate": 193.47,
         "date": "2026-10-20"
       },
       "CNY": {
-        "rate": 41.52,
+        "rate": 41.53,
         "date": "2026-10-20"
       },
       "MYR": {
-        "rate": 67.94,
+        "rate": 67.91,
         "date": "2026-10-20"
       },
       "TRY": {
-        "rate": 5.6,
+        "rate": 5.59,
         "date": "2026-10-20"
       },
       "INR": {
@@ -97,27 +97,35 @@
         "date": "2026-10-20"
       },
       "BDT": {
-        "rate": 2.25,
-        "date": "2026-10-19"
+        "rate": 2.24,
+        "date": "2026-10-20"
       }
     }
   },
   "gold": {
     "date": "2026-10-20",
-    "updated": "2026-10-20T06:20:06Z",
-    "spotUsdOz": 4129.299805,
-    "usdPkr": 277.29,
+    "updated": "2026-10-20T15:06:08Z",
+    "spotUsdOz": 4142.700195,
+    "usdPkr": 277.21,
     "premiumPct": 0,
-    "gram24k": 36813,
-    "tola24k": 429380,
-    "tenGram24k": 368130,
-    "gram22k": 33745,
-    "tola22k": 393598,
-    "tenGram22k": 337453,
-    "tola21k": 375707,
-    "tola18k": 322035,
-    "silverSpotUsdOz": 57.487999,
-    "silverTola": 5978,
+    "gram24k": 36922,
+    "tola24k": 430649,
+    "tenGram24k": 369218,
+    "gram22k": 33845,
+    "tola22k": 394761,
+    "tenGram22k": 338450,
+    "tola21k": 376818,
+    "tola18k": 322987,
+    "silverSpotUsdOz": 58.202,
+    "silverTola": 6050,
     "source": "World spot price (gold-api.com) converted at the open-market dollar rate"
+  },
+  "lpg": {
+    "date": "2026-10-01",
+    "perKg": 279.34,
+    "cylinder11kg": 3296.23,
+    "note": "OGRA Indigenous LPG Prices Notification for October 2026 (Rs 279,341.49 per tonne). Update on the 1st of each month from https://ogra.org.pk/lpg-notified-prices (the PDF is a scan, so type the per-kg and 11.8 kg figures here by hand).",
+    "source": "OGRA monthly LPG price notification, entered by hand",
+    "url": "https://ogra.org.pk/lpg-notified-prices"
   }
 }

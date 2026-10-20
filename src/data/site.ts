@@ -13,7 +13,8 @@ export const owner = {
   email: "umairii2207@gmail.com",
 };
 
-export const tagline = "Dollar, gold, petrol and Gulf currency rates in Pakistan, updated every day from official sources.";
+export const tagline =
+  "Dollar, gold, petrol and Gulf currency rates in Pakistan, updated every day from official sources.";
 
 /**
  * Where the Android app fetches today's rates from. The website reads its own

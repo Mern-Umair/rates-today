@@ -99,8 +99,22 @@ export function Logo({ className = "size-9" }: { className?: string }) {
         strokeLinecap="round"
         strokeLinejoin="round"
       />
-      <path d="M23 14h5v5" fill="none" stroke="#86efac" strokeWidth="2.8" strokeLinecap="round" strokeLinejoin="round" />
-      <text x="8" y="14.5" fontSize="10" fontWeight="700" fill="#ffffff" fontFamily="ui-sans-serif, system-ui, sans-serif">
+      <path
+        d="M23 14h5v5"
+        fill="none"
+        stroke="#86efac"
+        strokeWidth="2.8"
+        strokeLinecap="round"
+        strokeLinejoin="round"
+      />
+      <text
+        x="8"
+        y="14.5"
+        fontSize="10"
+        fontWeight="700"
+        fill="#ffffff"
+        fontFamily="ui-sans-serif, system-ui, sans-serif"
+      >
         Rs
       </text>
     </svg>

@@ -84,8 +84,8 @@ export function Footer() {
       <div className="border-t border-line">
         <p className="mx-auto max-w-5xl px-4 py-5 text-sm leading-relaxed text-muted sm:px-6">
           © {new Date().getFullYear()} {siteName}. An independent information site, not run by or connected with the
-          State Bank of Pakistan, ECAP, OGRA or any exchange company. Rates are published for information only; the
-          rate you get at a counter can differ. Check with your bank or exchange company before a large transaction.
+          State Bank of Pakistan, ECAP, OGRA or any exchange company. Rates are published for information only; the rate
+          you get at a counter can differ. Check with your bank or exchange company before a large transaction.
         </p>
       </div>
     </footer>

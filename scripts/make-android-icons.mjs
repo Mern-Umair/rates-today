@@ -106,14 +106,47 @@ for (const [name, [width, height]] of Object.entries(splash)) {
   const mark = Math.round(Math.min(width, height) * 0.28);
   const element = h(
     "div",
-    { style: { width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", background: navy } },
-    h("div", { style: { width: mark, height: mark, display: "flex", borderRadius: mark * 0.25, overflow: "hidden" } }, tile(mark, blue)),
+    {
+      style: {
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        alignItems: "center",
+        justifyContent: "center",
+        background: navy,
+      },
+    },
+    h(
+      "div",
+      { style: { width: mark, height: mark, display: "flex", borderRadius: mark * 0.25, overflow: "hidden" } },
+      tile(mark, blue),
+    ),
   );
   writeFileSync(join(dir, "splash.png"), await png(element, width, height));
 }
-writeFileSync(join(res, "drawable", "splash.png"), await png(
-  h("div", { style: { width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", background: navy } },
-    h("div", { style: { width: 134, height: 134, display: "flex", borderRadius: 34, overflow: "hidden" } }, tile(134, blue))),
-  480, 320,
-));
+writeFileSync(
+  join(res, "drawable", "splash.png"),
+  await png(
+    h(
+      "div",
+      {
+        style: {
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          background: navy,
+        },
+      },
+      h(
+        "div",
+        { style: { width: 134, height: 134, display: "flex", borderRadius: 34, overflow: "hidden" } },
+        tile(134, blue),
+      ),
+    ),
+    480,
+    320,
+  ),
+);
 console.log("splash screens written");

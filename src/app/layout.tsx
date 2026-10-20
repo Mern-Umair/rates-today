@@ -12,15 +12,16 @@ import "./globals.css";
 // the first screen appears without waiting for a font file on a slow connection.
 const heading = Lexend({ variable: "--font-heading", subsets: ["latin"] });
 
-const title = `Dollar, Gold and Petrol Rate Today in Pakistan | ${siteName}`;
+const title = `Dollar, Gold, Petrol and Currency Rates Today in Pakistan | ${siteName}`;
 const description =
-  "Today's dollar rate, gold rate per tola, petrol and diesel price and AED, SAR, GBP to PKR in Pakistan. Updated every day from the State Bank, ECAP and OGRA.";
+  "Today's dollar rate, gold and silver rate per tola, petrol, diesel and LPG price and AED, SAR, GBP to PKR in Pakistan. Updated twice a day from the State Bank, ECAP and OGRA.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: { default: title, template: `%s | ${siteName}` },
   description,
   applicationName: siteName,
+  robots: { index: true, follow: true, "max-snippet": -1, "max-image-preview": "large", "max-video-preview": -1 },
   alternates: { canonical: "/" },
   openGraph: {
     type: "website",

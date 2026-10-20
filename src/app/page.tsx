@@ -1,6 +1,6 @@
 import Link from "next/link";
 import { Faq } from "@/components/Faq";
-import { JsonLd, siteData } from "@/components/JsonLd";
+import { JsonLd, pageData, siteData } from "@/components/JsonLd";
 import { CurrencyTable, HomeCards } from "@/components/RateSections";
 import { Updated } from "@/components/Updated";
 import { ratePages } from "@/data/pages";
@@ -8,7 +8,11 @@ import { siteName } from "@/data/site";
 import { longDate, pkrFor, rates, rs } from "@/lib/rates";
 
 const usd = pkrFor("USD");
-const today = longDate(rates.updated.slice(0, 10));
+const aed = pkrFor("AED");
+const sar = pkrFor("SAR");
+const today = longDate(usd?.date ?? rates.updated.slice(0, 10));
+
+const lead = `Today, ${today}: the dollar is ${rs(usd?.rate)}, 24k gold ${rs(rates.gold?.tola24k)} per tola, petrol ${rs(rates.fuel?.petrol)} per litre, the UAE dirham ${rs(aed?.rate)} and the Saudi riyal ${rs(sar?.rate)}.`;
 
 const faq = [
   {
@@ -16,16 +20,28 @@ const faq = [
     a: `${usd ? `${rs(usd.rate)} per US dollar` : "See the dollar page"} as of ${usd ? longDate(usd.date) : today}. The open-market rate comes from the Exchange Companies Association of Pakistan (ECAP) and the interbank rate from the State Bank of Pakistan. The two differ by a rupee or two; exchange counters use the open-market rate.`,
   },
   {
+    q: "Aaj dollar ka rate kya hai?",
+    a: `Aaj (${today}) 1 dollar ${rs(usd?.rate)} ka hai. Yeh ECAP aur State Bank ki publication se liya gaya rate hai, din mein do baar update hota hai.`,
+  },
+  {
     q: "What is the gold rate today per tola?",
     a: `24 karat gold is ${rs(rates.gold?.tola24k)} per tola and 22 karat is ${rs(rates.gold?.tola22k)} per tola. The figure is the world gold price converted at today's dollar rate; a jeweller adds making charges on top.`,
+  },
+  {
+    q: "Aaj sone ka rate kya hai?",
+    a: `Aaj 24 karat sona ${rs(rates.gold?.tola24k)} fi tola aur 22 karat ${rs(rates.gold?.tola22k)} fi tola hai. Lahore, Karachi aur Islamabad mein rate taqreeban yahi hota hai; sunaar banwai alag lagata hai.`,
   },
   {
     q: "What is the petrol price in Pakistan today?",
     a: `Petrol is ${rs(rates.fuel?.petrol)} per litre and diesel ${rs(rates.fuel?.diesel)} per litre, effective ${longDate(rates.fuel?.date)}, as published by OGRA. Since July 2026 OGRA revises the price every day from a seven-day average of international prices.`,
   },
   {
+    q: "Aaj petrol ki qeemat kya hai?",
+    a: `Aaj petrol ${rs(rates.fuel?.petrol)} fi litre aur diesel ${rs(rates.fuel?.diesel)} fi litre hai, OGRA ke mutabiq, poore Pakistan mein ek hi qeemat.`,
+  },
+  {
     q: "How often are these rates updated?",
-    a: "Twice a day, every day. The State Bank, ECAP and OGRA figures are read from their own publications each morning and evening, and the gold figure follows the world price at the same times.",
+    a: "Twice a day, every day. The State Bank, ECAP and OGRA figures are read from their own publications each morning and evening, and the gold figure follows the world price at the same times. LPG follows OGRA's monthly notification.",
   },
   {
     q: "Are these the rates I will get at an exchange company or a jeweller?",
@@ -41,9 +57,10 @@ export default function HomePage() {
           <h1 className="font-display text-3xl font-bold tracking-tight sm:text-5xl">
             Dollar, gold and petrol rates in Pakistan today
           </h1>
-          <p className="mt-3 max-w-2xl text-lg text-hero-muted">
-            Every rate people look up each day, in one place: the open-market and interbank dollar rate, gold per tola
-            and 10 grams, petrol and diesel, and dirham, riyal and pound to rupee. Taken each day from the State Bank,
+          <p className="lead mt-3 max-w-2xl text-lg text-hero-fg">{lead}</p>
+          <p className="mt-3 max-w-2xl text-hero-muted">
+            Every rate people look up each day, in one place: the open-market and interbank dollar rate, gold and silver
+            per tola, petrol, diesel and LPG, and dirham, riyal and pound to rupee. Taken each day from the State Bank,
             ECAP and OGRA publications and the world gold price, nothing typed by hand.
           </p>
         </div>
@@ -114,8 +131,9 @@ export default function HomePage() {
               into rupees per tola (11.6638 grams), per 10 grams and per gram, for 24, 22, 21 and 18 karat.
             </li>
             <li>
-              <strong>Petrol and diesel:</strong> OGRA’s daily price publication, which since July 2026 sets the price
-              every day from a seven-day average of international prices and the exchange rate.
+              <strong>Petrol, diesel and LPG:</strong> OGRA’s daily price publication, which since July 2026 sets the
+              petrol and diesel price every day from a seven-day average of international prices and the exchange rate,
+              and OGRA’s monthly LPG consumer price notification.
             </li>
           </ul>
           <p>
@@ -127,6 +145,14 @@ export default function HomePage() {
         <Faq items={faq} />
       </div>
       <JsonLd data={siteData} />
+      <JsonLd
+        data={pageData({
+          name: "Dollar, gold and petrol rates in Pakistan today",
+          description: lead,
+          path: "",
+          dateModified: rates.updated,
+        })}
+      />
     </>
   );
 }

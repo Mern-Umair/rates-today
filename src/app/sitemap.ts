@@ -10,7 +10,12 @@ export const dynamic = "force-static";
 const updated = new Date(rates.updated);
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const entry = (path: string, priority: number, changeFrequency: "daily" | "weekly" | "yearly", lastModified: Date) => ({
+  const entry = (
+    path: string,
+    priority: number,
+    changeFrequency: "daily" | "weekly" | "yearly",
+    lastModified: Date,
+  ) => ({
     url: `${siteUrl}${path}/`,
     lastModified,
     changeFrequency,

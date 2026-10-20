@@ -6,7 +6,7 @@ import { Converter } from "@/components/Converter";
 import { HistoryChart } from "@/components/HistoryChart";
 import { Change, RateCard } from "@/components/RateCard";
 import { useRates } from "@/components/RatesProvider";
-import { currencyPages } from "@/data/pages";
+import { cities, currencyPages } from "@/data/pages";
 import { changeFrom, GRAMS_PER_TOLA, longDate, pkrFor, rs, type Rates } from "@/lib/rates";
 
 function usdDelta(rates: Rates) {
@@ -99,8 +99,8 @@ export function CurrencyTable({ limit }: { limit?: number }) {
         </tbody>
       </table>
       <p className="px-4 py-3 text-xs text-muted">
-        Buying and selling are ECAP open-market closing rates. * Indicative rate: the central-bank cross rate applied
-        to the dollar rate, where ECAP does not publish that currency.
+        Buying and selling are ECAP open-market closing rates. * Indicative rate: the central-bank cross rate applied to
+        the dollar rate, where ECAP does not publish that currency.
       </p>
     </div>
   );
@@ -133,8 +133,20 @@ export function DollarSection() {
         <RateCard
           label="Interbank (SBP)"
           value={rs(inter?.m2m ?? rates.reference?.usd)}
-          sub={inter ? `Bid ${rs(inter.bid)} · Offer ${rs(inter.offer)}` : rates.reference ? "Central-bank reference" : undefined}
-          note={inter ? `Mark-to-market rate, ${longDate(inter.date)}` : rates.reference ? longDate(rates.reference.date) : undefined}
+          sub={
+            inter
+              ? `Bid ${rs(inter.bid)} · Offer ${rs(inter.offer)}`
+              : rates.reference
+                ? "Central-bank reference"
+                : undefined
+          }
+          note={
+            inter
+              ? `Mark-to-market rate, ${longDate(inter.date)}`
+              : rates.reference
+                ? longDate(rates.reference.date)
+                : undefined
+          }
         />
       </div>
       {usd && <Converter code="USD" unit="dollar" rate={usd.rate} />}
@@ -157,8 +169,18 @@ export function GoldSection() {
   const rows = [
     ["24 karat", gold.tola24k, gold.tenGram24k, gold.gram24k],
     ["22 karat", gold.tola22k, gold.tenGram22k, gold.gram22k],
-    ["21 karat", gold.tola21k, Math.round((gold.tola21k / GRAMS_PER_TOLA) * 10), Math.round(gold.tola21k / GRAMS_PER_TOLA)],
-    ["18 karat", gold.tola18k, Math.round((gold.tola18k / GRAMS_PER_TOLA) * 10), Math.round(gold.tola18k / GRAMS_PER_TOLA)],
+    [
+      "21 karat",
+      gold.tola21k,
+      Math.round((gold.tola21k / GRAMS_PER_TOLA) * 10),
+      Math.round(gold.tola21k / GRAMS_PER_TOLA),
+    ],
+    [
+      "18 karat",
+      gold.tola18k,
+      Math.round((gold.tola18k / GRAMS_PER_TOLA) * 10),
+      Math.round(gold.tola18k / GRAMS_PER_TOLA),
+    ],
   ] as const;
   return (
     <div className="space-y-6">
@@ -214,8 +236,18 @@ export function FuelSection() {
   return (
     <div className="space-y-6">
       <div className="grid gap-3 sm:grid-cols-3">
-        <RateCard label="Petrol per litre" value={rs(fuel.petrol)} delta={petrolDelta} sub={`Effective ${longDate(fuel.date)}`} />
-        <RateCard label="Diesel per litre" value={rs(fuel.diesel)} delta={dieselDelta} sub={`Effective ${longDate(fuel.date)}`} />
+        <RateCard
+          label="Petrol per litre"
+          value={rs(fuel.petrol)}
+          delta={petrolDelta}
+          sub={`Effective ${longDate(fuel.date)}`}
+        />
+        <RateCard
+          label="Diesel per litre"
+          value={rs(fuel.diesel)}
+          delta={dieselDelta}
+          sub={`Effective ${longDate(fuel.date)}`}
+        />
         {rates.lpg ? (
           <RateCard
             label="LPG per kg"
@@ -240,15 +272,29 @@ export function CurrencySection({ code, unit }: { code: string; unit: string }) 
   const history = (rates.history.openMarket ?? [])
     .map((row) => ({ date: row.date, value: (row[code] as { sell: number } | undefined)?.sell ?? NaN }))
     .filter((row) => Number.isFinite(row.value));
-  const delta = changeFrom(rates.history.openMarket, (row) => (row[code] as { sell: number } | undefined)?.sell)?.delta ?? null;
+  const delta =
+    changeFrom(rates.history.openMarket, (row) => (row[code] as { sell: number } | undefined)?.sell)?.delta ?? null;
   if (!any) return <p className="text-muted">This rate is not available right now.</p>;
   const amounts = [1, 5, 10, 50, 100, 500, 1000, 5000, 10000];
   return (
     <div className="space-y-6">
       <div className="grid gap-3 sm:grid-cols-3">
-        <RateCard label={`1 ${unit} in rupees`} value={rs(any.rate)} delta={open ? delta : undefined} sub={longDate(any.date)} />
-        <RateCard label="Buying" value={rs(open?.buy)} sub={open ? "Open market (ECAP)" : "Not published for this currency"} />
-        <RateCard label="Selling" value={rs(open?.sell)} sub={open ? "Open market (ECAP)" : "Indicative rate shown left"} />
+        <RateCard
+          label={`1 ${unit} in rupees`}
+          value={rs(any.rate)}
+          delta={open ? delta : undefined}
+          sub={longDate(any.date)}
+        />
+        <RateCard
+          label="Buying"
+          value={rs(open?.buy)}
+          sub={open ? "Open market (ECAP)" : "Not published for this currency"}
+        />
+        <RateCard
+          label="Selling"
+          value={rs(open?.sell)}
+          sub={open ? "Open market (ECAP)" : "Indicative rate shown left"}
+        />
       </div>
       <Converter code={code} unit={unit} rate={any.rate} />
       <div className="overflow-x-auto rounded-xl border border-line bg-surface">
@@ -269,9 +315,111 @@ export function CurrencySection({ code, unit }: { code: string; unit: string }) 
           </tbody>
         </table>
       </div>
-      {history.length >= 2 && <HistoryChart points={history} label={`${code} selling rate`} format={(value) => `Rs ${value.toFixed(2)}`} />}
+      {history.length >= 2 && (
+        <HistoryChart points={history} label={`${code} selling rate`} format={(value) => `Rs ${value.toFixed(2)}`} />
+      )}
     </div>
   );
 }
 
 export { Change };
+
+/** Silver page: per tola, 10 grams, gram and kilogram. Silver history is not kept, so there is no chart. */
+export function SilverSection() {
+  const rates = useRates();
+  const gold = rates.gold;
+  if (!gold?.silverTola) return <p className="text-muted">The silver rate is not available right now.</p>;
+  const gram = gold.silverTola / GRAMS_PER_TOLA;
+  return (
+    <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+      <RateCard label="Silver per tola" value={rs(gold.silverTola)} sub={longDate(gold.date)} />
+      <RateCard label="Silver per 10 grams" value={rs(gram * 10)} />
+      <RateCard label="Silver per gram" value={rs(gram)} />
+      <RateCard
+        label="Silver per kilogram"
+        value={rs(gram * 1000)}
+        sub={gold.silverSpotUsdOz ? `Spot $${gold.silverSpotUsdOz.toFixed(2)} per troy ounce` : undefined}
+      />
+    </div>
+  );
+}
+
+/** LPG page: OGRA's monthly maximum consumer price per kg and per cylinder. */
+export function LpgSection() {
+  const rates = useRates();
+  const lpg = rates.lpg;
+  if (!lpg) return <p className="text-muted">The LPG price is not available right now.</p>;
+  const domestic = lpg.cylinder11kg ?? Math.round(lpg.perKg * 11.8 * 100) / 100;
+  const commercial = Math.round(lpg.perKg * 45.4 * 100) / 100;
+  const weights = [1, 5, 11.8, 15, 45.4];
+  return (
+    <div className="space-y-6">
+      <div className="grid gap-3 sm:grid-cols-3">
+        <RateCard label="LPG per kg" value={rs(lpg.perKg)} sub={`Effective ${longDate(lpg.date)}`} />
+        <RateCard label="Domestic cylinder, 11.8 kg" value={rs(domestic)} sub="Maximum consumer price" />
+        <RateCard label="Commercial cylinder, 45.4 kg" value={rs(commercial)} sub="At the per-kg price" />
+      </div>
+      <div className="overflow-x-auto rounded-xl border border-line bg-surface">
+        <table className="w-full text-left text-sm sm:text-base">
+          <thead className="bg-surface-2 text-sm text-muted">
+            <tr>
+              <th className="px-4 py-2.5 font-medium">Weight</th>
+              <th className="px-4 py-2.5 text-right font-medium">Price</th>
+            </tr>
+          </thead>
+          <tbody className="divide-y divide-line">
+            {weights.map((kg) => (
+              <tr key={kg}>
+                <td className="px-4 py-2 tabular-nums">
+                  {kg} kg{kg === 11.8 ? " (domestic cylinder)" : kg === 45.4 ? " (commercial cylinder)" : ""}
+                </td>
+                <td className="px-4 py-2 text-right tabular-nums">{rs(Math.round(lpg.perKg * kg * 100) / 100)}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+        <p className="px-4 py-3 text-xs text-muted">
+          OGRA notifies a maximum consumer price once a month. Shops may sell below it; in some areas they charge more,
+          which is a breach of the notified price.
+        </p>
+      </div>
+    </div>
+  );
+}
+
+/** Gold rate by city. One national reference rate, so every city shows the same figure, with the note that says why. */
+export function GoldCityTable() {
+  const rates = useRates();
+  const gold = rates.gold;
+  if (!gold) return null;
+  return (
+    <div className="overflow-x-auto rounded-xl border border-line bg-surface">
+      <table className="w-full text-left text-sm sm:text-base">
+        <thead className="bg-surface-2 text-sm text-muted">
+          <tr>
+            <th className="px-4 py-2.5 font-medium">City</th>
+            <th className="px-4 py-2.5 text-right font-medium">24k per tola</th>
+            <th className="px-4 py-2.5 text-right font-medium">22k per tola</th>
+            <th className="px-4 py-2.5 text-right font-medium">24k per 10 g</th>
+          </tr>
+        </thead>
+        <tbody className="divide-y divide-line">
+          {cities.map((city) => (
+            <tr key={city}>
+              <td className="px-4 py-2 font-medium">{city}</td>
+              <td className="px-4 py-2 text-right tabular-nums">{rs(gold.tola24k)}</td>
+              <td className="px-4 py-2 text-right tabular-nums">{rs(gold.tola22k)}</td>
+              <td className="px-4 py-2 text-right tabular-nums">{rs(gold.tenGram24k)}</td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <p className="px-4 py-3 text-xs text-muted">
+        Gold is priced nationally: the Karachi Sarafa association’s rate is the reference and the Lahore, Islamabad and
+        other city associations follow it, usually within a few hundred rupees per tola. The figure here is the world
+        price at today’s dollar rate, the same for every city; a local jeweller’s quote can sit slightly above or below
+        it.
+      </p>
+    </div>
+  );
+}

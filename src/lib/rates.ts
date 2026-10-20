@@ -43,7 +43,10 @@ export type Rates = {
 export const rates = data as unknown as Rates;
 
 /** Rupees per unit of a currency: open market selling rate where ECAP publishes one, else the cross. */
-export function pkrFor(code: string, source: Rates = rates): { rate: number; date: string; kind: "open-market" | "indicative" } | null {
+export function pkrFor(
+  code: string,
+  source: Rates = rates,
+): { rate: number; date: string; kind: "open-market" | "indicative" } | null {
   const open = source.openMarket?.rates[code];
   if (open) return { rate: open.sell, date: source.openMarket!.date, kind: "open-market" };
   if (code === "USD") {
@@ -87,3 +90,14 @@ export function changeFrom<T extends { date: string }>(
 }
 
 export const GRAMS_PER_TOLA = 11.6638;
+
+/** "October 2026" from "2026-10-01", for monthly figures such as LPG. */
+export function monthYear(iso: string | undefined): string {
+  if (!iso) return "";
+  const [year, month] = iso.split("-").map(Number);
+  return new Date(Date.UTC(year, month - 1, 1)).toLocaleDateString("en-GB", {
+    month: "long",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+}

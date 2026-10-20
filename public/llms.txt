@@ -1,0 +1,41 @@
+# Rates Today
+
+> Today's dollar, gold, silver, petrol, diesel, LPG and Gulf currency rates in Pakistan, machine-read twice a day from the official publications (State Bank of Pakistan, Exchange Companies Association of Pakistan, OGRA) and the world gold price. Every figure carries the date it was published.
+
+Rates Today is an independent information site run from Lahore, Pakistan. It is not connected with the State Bank, ECAP, OGRA, any exchange company or any jeweller. Numbers are never typed by hand. Each page opens with a one-sentence answer that names the figure and its date, followed by buying/selling detail, a converter, a 30-day chart and the questions people ask.
+
+## Rate pages
+
+- [Dollar rate today in Pakistan](/dollar-rate-today-pakistan/): USD to PKR open-market buying and selling (ECAP) and the State Bank interbank rate, with a 30-day chart and converter.
+- [Gold rate today in Pakistan](/gold-rate-today-pakistan/): 24k, 22k, 21k and 18k gold per tola, per 10 grams and per gram, the international spot price, and the rate by city.
+- [Silver rate today in Pakistan](/silver-rate-today-pakistan/): silver per tola, per 10 grams, per gram and per kilogram.
+- [Petrol and diesel price today in Pakistan](/petrol-price-today-pakistan/): OGRA's daily petrol and high-speed diesel price per litre, the change from the previous day and a chart.
+- [LPG price today in Pakistan](/lpg-price-today-pakistan/): OGRA's monthly LPG consumer price per kg and per 11.8 kg domestic cylinder.
+- [Currency rates in Pakistan today](/currency-rates-pakistan/): open-market forex rates for 15 currencies in one table.
+
+## Currency pages (rupees per unit, converter, ready-reckoner, chart)
+
+- [USD to PKR](/usd-to-pkr/)
+- [AED to PKR](/aed-to-pkr/) (UAE dirham)
+- [SAR to PKR](/sar-to-pkr/) (Saudi riyal)
+- [GBP to PKR](/gbp-to-pkr/) (British pound)
+- [EUR to PKR](/eur-to-pkr/)
+- [QAR to PKR](/qar-to-pkr/) (Qatari riyal)
+- [KWD to PKR](/kwd-to-pkr/) (Kuwaiti dinar)
+- [OMR to PKR](/omr-to-pkr/) (Omani rial)
+- [BHD to PKR](/bhd-to-pkr/) (Bahraini dinar)
+- [CAD to PKR](/cad-to-pkr/), [AUD to PKR](/aud-to-pkr/), [MYR to PKR](/myr-to-pkr/), [CNY to PKR](/cny-to-pkr/), [TRY to PKR](/try-to-pkr/), [JPY to PKR](/jpy-to-pkr/)
+
+## Sources and method
+
+- Open-market currency rates: ECAP closing buying and selling rates (USD, EUR, GBP, JPY, AED, SAR), published through the State Bank of Pakistan.
+- Interbank dollar rate: State Bank of Pakistan mark-to-market revaluation rate.
+- Other currencies: central-bank reference cross rates applied to the dollar rate, marked indicative.
+- Gold and silver: world spot price per troy ounce converted at the day's dollar rate; one tola is 11.6638 grams. Jewellers add making charges on top.
+- Petrol and diesel: OGRA daily price publication (one price for the whole country, equalised by the inland freight margin).
+- LPG: OGRA monthly maximum consumer price notification.
+
+## Data
+
+- [rates.json](/data/rates.json): the live figures as JSON, updated twice a day, with 30-day history for the dollar, gold and fuel.
+- [About and sources](/about/), [Contact](/contact/), [Privacy policy](/privacy/), [Terms of use](/terms/)

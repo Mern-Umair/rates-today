@@ -21,9 +21,7 @@ export function Converter({ code, unit, rate }: { code: string; unit: string; ra
     <div className="rounded-xl border border-line bg-surface p-4 sm:p-5">
       <div className="flex flex-wrap items-end gap-3">
         <label className="flex-1" htmlFor={id}>
-          <span className="block text-sm font-medium text-muted">
-            Amount in {direction === "toPkr" ? code : "PKR"}
-          </span>
+          <span className="block text-sm font-medium text-muted">Amount in {direction === "toPkr" ? code : "PKR"}</span>
           <input
             id={id}
             inputMode="decimal"

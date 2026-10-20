@@ -4,6 +4,8 @@ export const ratePages = [
   { href: "/gold-rate-today-pakistan", short: "Gold rate", label: "Gold rate today" },
   { href: "/petrol-price-today-pakistan", short: "Petrol price", label: "Petrol and diesel price today" },
   { href: "/currency-rates-pakistan", short: "All currencies", label: "All currency rates" },
+  { href: "/silver-rate-today-pakistan", short: "Silver rate", label: "Silver rate today" },
+  { href: "/lpg-price-today-pakistan", short: "LPG price", label: "LPG price today" },
 ] as const;
 
 /** Currency pages: one per currency people in the Gulf, UK and elsewhere convert into rupees. */
@@ -30,3 +32,22 @@ export type CurrencyCode = (typeof currencyPages)[number]["code"];
 export function currencyPage(slug: string) {
   return currencyPages.find((page) => page.slug === slug);
 }
+
+/**
+ * Cities people add to a rate search ("gold rate today lahore", "petrol price karachi").
+ * Gold follows one national reference (the Karachi Sarafa rate) and petrol is one OGRA
+ * price for the whole country, so the pages show the same figure for each city and say so.
+ */
+export const cities = [
+  "Karachi",
+  "Lahore",
+  "Islamabad",
+  "Rawalpindi",
+  "Peshawar",
+  "Faisalabad",
+  "Multan",
+  "Quetta",
+  "Hyderabad",
+  "Gujranwala",
+  "Sialkot",
+] as const;

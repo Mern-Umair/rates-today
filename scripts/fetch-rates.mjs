@@ -32,7 +32,25 @@ const BROWSER_HEADERS = {
 const HISTORY_DAYS = 400;
 // Every currency the site shows. The ECAP open-market figure is used first where it
 // exists; these crosses fill in the rest, and stand in for all of them on a day ECAP is missing.
-const CROSS_CURRENCIES = ["USD", "AED", "SAR", "GBP", "EUR", "JPY", "QAR", "KWD", "OMR", "BHD", "CAD", "AUD", "CNY", "MYR", "TRY", "INR", "BDT"];
+const CROSS_CURRENCIES = [
+  "USD",
+  "AED",
+  "SAR",
+  "GBP",
+  "EUR",
+  "JPY",
+  "QAR",
+  "KWD",
+  "OMR",
+  "BHD",
+  "CAD",
+  "AUD",
+  "CNY",
+  "MYR",
+  "TRY",
+  "INR",
+  "BDT",
+];
 
 const log = (...parts) => console.log(new Date().toISOString(), ...parts);
 
@@ -77,8 +95,18 @@ function daysAgo(iso, days) {
 }
 
 const MONTH_NAMES = [
-  "january", "february", "march", "april", "may", "june",
-  "july", "august", "september", "october", "november", "december",
+  "january",
+  "february",
+  "march",
+  "april",
+  "may",
+  "june",
+  "july",
+  "august",
+  "september",
+  "october",
+  "november",
+  "december",
 ];
 
 /** The ECAP file for one day is published under a few spellings; try them all. */
@@ -261,12 +289,20 @@ async function main() {
       silverTola: spot.silver ? Math.round((spot.silver / 31.1035) * usdSell * 11.6638) : null,
       source: "World spot price (gold-api.com) converted at the open-market dollar rate",
     };
-    next.history.gold = upsertHistory(next.history.gold, { date: today, tola24k: prices.tola24k, spotUsdOz: spot.gold });
+    next.history.gold = upsertHistory(next.history.gold, {
+      date: today,
+      tola24k: prices.tola24k,
+      spotUsdOz: spot.gold,
+    });
   }
 
   if (fuel) {
     next.fuel = fuel;
-    next.history.fuel = upsertHistory(next.history.fuel, { date: fuel.date, petrol: fuel.petrol, diesel: fuel.diesel ?? null });
+    next.history.fuel = upsertHistory(next.history.fuel, {
+      date: fuel.date,
+      petrol: fuel.petrol,
+      diesel: fuel.diesel ?? null,
+    });
   }
 
   if (overrides.lpg?.perKg) {
@@ -279,7 +315,13 @@ async function main() {
 
   mkdirSync(dirname(outputPath), { recursive: true });
   writeFileSync(outputPath, `${JSON.stringify(next, null, 2)}\n`);
-  const got = [interbank && "interbank", openMarket && "open market", crosses && "crosses", spot && "gold", fuel && "fuel"]
+  const got = [
+    interbank && "interbank",
+    openMarket && "open market",
+    crosses && "crosses",
+    spot && "gold",
+    fuel && "fuel",
+  ]
     .filter(Boolean)
     .join(", ");
   log(`wrote ${outputPath} (${got || "nothing new"})`);

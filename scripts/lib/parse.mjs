@@ -72,7 +72,8 @@ export function parseEcap(text) {
 /** The OGRA price publications page: newest first, with the English download link. */
 export function parseOgraListing(html) {
   const entries = [];
-  const pattern = /Price Publications Effective Dated\s+([A-Za-z]+\s+\d{1,2},?\s+\d{4})[\s\S]*?href="(https:\/\/ogra\.org\.pk\/download\/\d+)\?lang=en"/g;
+  const pattern =
+    /Price Publications Effective Dated\s+([A-Za-z]+\s+\d{1,2},?\s+\d{4})[\s\S]*?href="(https:\/\/ogra\.org\.pk\/download\/\d+)\?lang=en"/g;
   for (const match of html.matchAll(pattern)) {
     const date = isoDate(match[1]);
     if (date) entries.push({ date, url: `${match[2]}?lang=en` });
