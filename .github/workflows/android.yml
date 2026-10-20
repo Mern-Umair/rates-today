@@ -15,7 +15,8 @@ on:
 
 jobs:
   android:
-    runs-on: ubuntu-latest
+    # Pinned: this image ships the Android SDK, so no SDK set-up step is needed.
+    runs-on: ubuntu-24.04
     timeout-minutes: 40
     steps:
       - uses: actions/checkout@v4
@@ -25,12 +26,13 @@ jobs:
           node-version: 22
           cache: npm
 
-      - uses: actions/setup-java@v4
+      - uses: actions/setup-java@v5
         with:
           distribution: temurin
           java-version: 21
 
-      - uses: android-actions/setup-android@v3
+      # Git on Windows stores gradlew without the execute bit; Gradle needs it.
+      - run: chmod +x android/gradlew
 
       - run: npm ci --no-audit --no-fund
 
