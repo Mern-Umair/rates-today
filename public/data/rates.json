@@ -1,5 +1,5 @@
 {
-  "updated": "2026-10-21T09:28:16.172Z",
+  "updated": "2026-10-21T17:31:48.524Z",
   "history": {
     "fuel": [
       {
@@ -16,8 +16,8 @@
       },
       {
         "date": "2026-10-21",
-        "tola24k": 428802,
-        "spotUsdOz": 4123.600098
+        "tola24k": 429930,
+        "spotUsdOz": 4133.700195
       }
     ]
   },
@@ -30,7 +30,7 @@
   },
   "reference": {
     "date": "2026-10-21",
-    "usd": 277.3,
+    "usd": 277.35,
     "source": "Frankfurter central-bank reference rate"
   },
   "otherCurrencies": {
@@ -38,23 +38,23 @@
     "source": "Frankfurter (central-bank reference rates) applied to the dollar rate",
     "rates": {
       "USD": {
-        "rate": 277.3,
+        "rate": 277.35,
         "date": "2026-10-21"
       },
       "AED": {
-        "rate": 75.51,
+        "rate": 75.52,
         "date": "2026-10-21"
       },
       "SAR": {
-        "rate": 73.95,
+        "rate": 73.96,
         "date": "2026-10-21"
       },
       "GBP": {
-        "rate": 370,
+        "rate": 370.65,
         "date": "2026-10-21"
       },
       "EUR": {
-        "rate": 311.31,
+        "rate": 311.48,
         "date": "2026-10-21"
       },
       "JPY": {
@@ -62,35 +62,35 @@
         "date": "2026-10-21"
       },
       "QAR": {
-        "rate": 76.18,
+        "rate": 76.2,
         "date": "2026-10-21"
       },
       "KWD": {
-        "rate": 897.53,
+        "rate": 897.95,
         "date": "2026-10-21"
       },
       "OMR": {
-        "rate": 721.2,
+        "rate": 721.33,
         "date": "2026-10-21"
       },
       "BHD": {
-        "rate": 737.5,
+        "rate": 737.63,
         "date": "2026-10-21"
       },
       "CAD": {
-        "rate": 197.23,
+        "rate": 197.42,
         "date": "2026-10-21"
       },
       "AUD": {
-        "rate": 193.77,
+        "rate": 194.21,
         "date": "2026-10-21"
       },
       "CNY": {
-        "rate": 41.54,
+        "rate": 41.56,
         "date": "2026-10-21"
       },
       "MYR": {
-        "rate": 67.93,
+        "rate": 67.96,
         "date": "2026-10-21"
       },
       "TRY": {
@@ -109,20 +109,20 @@
   },
   "gold": {
     "date": "2026-10-21",
-    "updated": "2026-10-21T09:28:05Z",
-    "spotUsdOz": 4123.600098,
-    "usdPkr": 277.3,
+    "updated": "2026-10-21T17:31:38Z",
+    "spotUsdOz": 4133.700195,
+    "usdPkr": 277.35,
     "premiumPct": 0,
-    "gram24k": 36764,
-    "tola24k": 428802,
-    "tenGram24k": 367635,
-    "gram22k": 33700,
-    "tola22k": 393069,
-    "tenGram22k": 336999,
-    "tola21k": 375202,
-    "tola18k": 321602,
-    "silverSpotUsdOz": 57.422001,
-    "silverTola": 5971,
+    "gram24k": 36860,
+    "tola24k": 429930,
+    "tenGram24k": 368602,
+    "gram22k": 33789,
+    "tola22k": 394103,
+    "tenGram22k": 337885,
+    "tola21k": 376189,
+    "tola18k": 322448,
+    "silverSpotUsdOz": 57.688999,
+    "silverTola": 6000,
     "source": "World spot price (gold-api.com) converted at the open-market dollar rate"
   },
   "lpg": {
