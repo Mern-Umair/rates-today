@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-18T20:48:14.617Z",
+  "updated": "2026-11-19T13:37:58.920Z",
   "history": {
     "fuel": [
       {
@@ -161,8 +161,8 @@
       },
       {
         "date": "2026-11-19",
-        "tola24k": 387589,
-        "spotUsdOz": 3733.870117
+        "tola24k": 386572,
+        "spotUsdOz": 3722.050049
       }
     ]
   },
@@ -174,8 +174,8 @@
     "url": "https://ogra.org.pk/download/17375?lang=en"
   },
   "reference": {
-    "date": "2026-11-18",
-    "usd": 276.81,
+    "date": "2026-11-19",
+    "usd": 276.96,
     "source": "Frankfurter central-bank reference rate"
   },
   "otherCurrencies": {
@@ -183,91 +183,91 @@
     "source": "Frankfurter (central-bank reference rates) applied to the dollar rate",
     "rates": {
       "USD": {
-        "rate": 276.81,
-        "date": "2026-11-18"
+        "rate": 276.96,
+        "date": "2026-11-19"
       },
       "AED": {
-        "rate": 75.37,
-        "date": "2026-11-18"
+        "rate": 75.41,
+        "date": "2026-11-19"
       },
       "SAR": {
-        "rate": 73.82,
-        "date": "2026-11-18"
+        "rate": 73.86,
+        "date": "2026-11-19"
       },
       "GBP": {
-        "rate": 365.1,
-        "date": "2026-11-18"
+        "rate": 364.9,
+        "date": "2026-11-19"
       },
       "EUR": {
-        "rate": 304.43,
-        "date": "2026-11-18"
+        "rate": 304.17,
+        "date": "2026-11-19"
       },
       "JPY": {
         "rate": 1.74,
-        "date": "2026-11-18"
+        "date": "2026-11-19"
       },
       "QAR": {
-        "rate": 76.05,
-        "date": "2026-11-18"
+        "rate": 76.09,
+        "date": "2026-11-19"
       },
       "KWD": {
-        "rate": 892.91,
-        "date": "2026-11-18"
+        "rate": 893.16,
+        "date": "2026-11-19"
       },
       "OMR": {
-        "rate": 719.92,
-        "date": "2026-11-18"
+        "rate": 720.31,
+        "date": "2026-11-19"
       },
       "BHD": {
-        "rate": 736.2,
-        "date": "2026-11-18"
+        "rate": 736.6,
+        "date": "2026-11-19"
       },
       "CAD": {
-        "rate": 193.59,
-        "date": "2026-11-18"
+        "rate": 193.48,
+        "date": "2026-11-19"
       },
       "AUD": {
-        "rate": 186.37,
-        "date": "2026-11-18"
+        "rate": 185.99,
+        "date": "2026-11-19"
       },
       "CNY": {
-        "rate": 41.55,
-        "date": "2026-11-18"
+        "rate": 41.57,
+        "date": "2026-11-19"
       },
       "MYR": {
-        "rate": 67.48,
-        "date": "2026-11-18"
+        "rate": 67.33,
+        "date": "2026-11-19"
       },
       "TRY": {
         "rate": 5.49,
-        "date": "2026-11-18"
+        "date": "2026-11-19"
       },
       "INR": {
         "rate": 2.97,
-        "date": "2026-11-18"
+        "date": "2026-11-19"
       },
       "BDT": {
         "rate": 2.22,
-        "date": "2026-11-18"
+        "date": "2026-11-19"
       }
     }
   },
   "gold": {
     "date": "2026-11-19",
-    "updated": "2026-11-18T20:48:01Z",
-    "spotUsdOz": 3733.870117,
-    "usdPkr": 276.81,
+    "updated": "2026-11-19T13:37:33Z",
+    "spotUsdOz": 3722.050049,
+    "usdPkr": 276.96,
     "premiumPct": 0,
-    "gram24k": 33230,
-    "tola24k": 387589,
-    "tenGram24k": 332301,
-    "gram22k": 30461,
-    "tola22k": 355290,
-    "tenGram22k": 304609,
-    "tola21k": 339141,
-    "tola18k": 290692,
-    "silverSpotUsdOz": 45.044998,
-    "silverTola": 4676,
+    "gram24k": 33143,
+    "tola24k": 386572,
+    "tenGram24k": 331429,
+    "gram22k": 30381,
+    "tola22k": 354357,
+    "tenGram22k": 303810,
+    "tola21k": 338250,
+    "tola18k": 289929,
+    "silverSpotUsdOz": 45.095001,
+    "silverTola": 4684,
     "source": "World spot price (gold-api.com) converted at the open-market dollar rate"
   },
   "lpg": {
