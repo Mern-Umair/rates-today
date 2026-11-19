@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-19T13:37:58.920Z",
+  "updated": "2026-11-19T20:53:23.808Z",
   "history": {
     "fuel": [
       {
@@ -163,6 +163,11 @@
         "date": "2026-11-19",
         "tola24k": 386572,
         "spotUsdOz": 3722.050049
+      },
+      {
+        "date": "2026-11-20",
+        "tola24k": 380758,
+        "spotUsdOz": 3666.070068
       }
     ]
   },
@@ -195,15 +200,15 @@
         "date": "2026-11-19"
       },
       "GBP": {
-        "rate": 364.9,
+        "rate": 364.7,
         "date": "2026-11-19"
       },
       "EUR": {
-        "rate": 304.17,
+        "rate": 304.16,
         "date": "2026-11-19"
       },
       "JPY": {
-        "rate": 1.74,
+        "rate": 1.73,
         "date": "2026-11-19"
       },
       "QAR": {
@@ -211,7 +216,7 @@
         "date": "2026-11-19"
       },
       "KWD": {
-        "rate": 893.16,
+        "rate": 892.99,
         "date": "2026-11-19"
       },
       "OMR": {
@@ -223,11 +228,11 @@
         "date": "2026-11-19"
       },
       "CAD": {
-        "rate": 193.48,
+        "rate": 193.43,
         "date": "2026-11-19"
       },
       "AUD": {
-        "rate": 185.99,
+        "rate": 185.88,
         "date": "2026-11-19"
       },
       "CNY": {
@@ -253,21 +258,21 @@
     }
   },
   "gold": {
-    "date": "2026-11-19",
-    "updated": "2026-11-19T13:37:33Z",
-    "spotUsdOz": 3722.050049,
+    "date": "2026-11-20",
+    "updated": "2026-11-19T20:53:04Z",
+    "spotUsdOz": 3666.070068,
     "usdPkr": 276.96,
     "premiumPct": 0,
-    "gram24k": 33143,
-    "tola24k": 386572,
-    "tenGram24k": 331429,
-    "gram22k": 30381,
-    "tola22k": 354357,
-    "tenGram22k": 303810,
-    "tola21k": 338250,
-    "tola18k": 289929,
-    "silverSpotUsdOz": 45.095001,
-    "silverTola": 4684,
+    "gram24k": 32644,
+    "tola24k": 380758,
+    "tenGram24k": 326444,
+    "gram22k": 29924,
+    "tola22k": 349028,
+    "tenGram22k": 299240,
+    "tola21k": 333163,
+    "tola18k": 285568,
+    "silverSpotUsdOz": 43.955002,
+    "silverTola": 4565,
     "source": "World spot price (gold-api.com) converted at the open-market dollar rate"
   },
   "lpg": {
